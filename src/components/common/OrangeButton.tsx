@@ -1,15 +1,16 @@
 import React from 'react';
-import { TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { TouchableOpacity, Text, StyleSheet, ViewStyle } from 'react-native';
 
 interface OrangeButtonProps {
   title: string;
   onPress: () => void;
+  style?: ViewStyle;
 }
 
-const OrangeButton = ({ title, onPress }: OrangeButtonProps) => {
+const OrangeButton = ({ title, onPress, style }: OrangeButtonProps) => {
   return (
     <TouchableOpacity
-      style={styles.button}
+      style={[styles.button, style]}
       onPress={onPress}
       activeOpacity={0.7}
     >
@@ -24,8 +25,8 @@ const styles = StyleSheet.create({
     height: 51,
     backgroundColor: '#E78454',
     borderRadius: 10,
-    justifyContent: 'center', // Alinha o texto verticalmente
-    alignItems: 'center', // Alinha o texto horizontalmente
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   text: {
     color: '#FFFFFF',

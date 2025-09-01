@@ -1,15 +1,16 @@
 import React from 'react';
-import { TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { TouchableOpacity, Text, StyleSheet, ViewStyle } from 'react-native';
 
 interface LightButtonProps {
   title: string;
   onPress: () => void;
+  style?: ViewStyle;
 }
 
-const LightButton = ({ title, onPress }: LightButtonProps) => {
+const LightButton = ({ title, onPress, style }: LightButtonProps) => {
   return (
     <TouchableOpacity
-      style={styles.button}
+      style={[styles.button, style]}
       onPress={onPress}
       activeOpacity={0.7}
     >
