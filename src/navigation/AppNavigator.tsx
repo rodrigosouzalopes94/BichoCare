@@ -8,8 +8,18 @@ import SplashScreen from "../screens/SplashScreen";
 import HomeScreen from "../screens/HomeScreen";
 import RegisterScreen from "../screens/RegisterScreen";
 import LoginScreen from "../screens/LoginScreen";
+import RecoverPasswordScreen from "../screens/RecoverPasswordScreen";
 
-const Stack = createNativeStackNavigator();
+export type RootStackParamList = {
+  Splash: undefined;
+  Home: undefined;
+  Register: undefined;
+  Login: undefined;
+  RecoverPassword: undefined;
+};
+
+const Stack = createNativeStackNavigator<RootStackParamList>();
+
 
 export default function AppNavigator() {
   return (
@@ -19,6 +29,7 @@ export default function AppNavigator() {
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Register" component={RegisterScreen} />
         <Stack.Screen name="Login" component={LoginScreen} />
+        <Stack.Screen name= "RecoverPassword" component={RecoverPasswordScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

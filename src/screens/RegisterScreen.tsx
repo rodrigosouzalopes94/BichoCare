@@ -2,13 +2,18 @@ import React, { useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import OrangeButton from "../components/common/OrangeButton";
 import LabeledInput from "../components/common/LabeledInput";
+import BackButton from "../components/common/BackButton"; // importando
 
 const RegisterScreen = () => {
   const [userType, setUserType] = useState<"Cuidador" | "Pai de Pet">("Cuidador");
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Registro</Text>
+      {/* Header com BackButton + Título */}
+      <View style={styles.header}>
+        <BackButton />
+        <Text style={styles.title}>Registro</Text>
+      </View>
 
       <LabeledInput label="Nome" placeholder="Digite seu nome" />
       <LabeledInput label="E-mail" placeholder="Digite seu e-mail" />
@@ -52,13 +57,17 @@ const RegisterScreen = () => {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: "#FFF", padding: 20 },
+  header: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 30,
+  },
   title: {
     fontSize: 28,
     fontWeight: "bold",
     color: "#4F2D27",
-    marginBottom: 30,
     fontFamily: "Alexandria",
-    textAlign: "center",
+    marginLeft: 10, // espaço entre botão e título
   },
   label: {
     fontSize: 18,
